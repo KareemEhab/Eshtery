@@ -21,4 +21,5 @@
         <item>Architect</item>
         <item>Other</item>
     </string-array>
+    <string name="title_activity_main2">MainActivity</string>
 </resources>

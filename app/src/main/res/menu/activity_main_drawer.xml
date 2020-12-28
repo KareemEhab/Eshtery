@@ -5,16 +5,40 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_deals"
+            android:icon="@drawable/deals"
+            android:title="Deals" />
+        <item
+            android:id="@+id/nav_fashion"
+            android:icon="@drawable/shirt2"
             android:title="Fashion" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_electronics"
+            android:icon="@drawable/ic_baseline_computer_24"
+            android:title="Electronics" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_kitchen"
+            android:icon="@drawable/cooking"
+            android:title="Kitchen" />
+        <item
+            android:id="@+id/nav_sports"
+            android:icon="@drawable/sports"
+            android:title="Sports" />
+        <item
+            android:id="@+id/nav_toys"
+            android:icon="@drawable/toys"
+            android:title="Toys" />
+        <item
+            android:id="@+id/nav_perfumes"
+            android:icon="@drawable/perfume"
+            android:title="Perfumes and Makeup" />
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_wishlist"
+            android:icon="@drawable/heart"
+            android:title="My Wishlist" />
     </group>
 </menu>

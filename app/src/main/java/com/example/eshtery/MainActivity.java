@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,14 +26,33 @@ public class MainActivity extends AppCompatActivity {
         //getActionBar().setTitle("");
         //getActionBar().hide();
         ActionBar bar = getSupportActionBar();
-        //bar.hide();
+        bar.hide();
         //bar.setDisplayShowHomeEnabled(true);
         //bar.setIcon(R.drawable.wide_logo);
         TextView register = (TextView)findViewById(R.id.textViewRegister);
+        TextView forgotP = (TextView)findViewById(R.id.textViewForgotPassword);
+        Button loginBtn = (Button)findViewById(R.id.btnLogin);
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent I = new Intent(MainActivity.this, Register.class);
+                startActivity(I);
+            }
+        });
+
+        forgotP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent I = new Intent(MainActivity.this, ResetPassword.class);
+                startActivity(I);
+            }
+        });
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent I = new Intent(MainActivity.this, MainScreen.class);
                 startActivity(I);
             }
         });
