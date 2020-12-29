@@ -10,22 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Eshtery" >
         <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Eshtery.NoActionBar" >
-        </activity>
-        <activity
-            android:name=".MainActivity2"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Eshtery.NoActionBar" >
-        </activity>
-        <activity
             android:name=".MainScreen"
             android:label="@string/title_activity_main_screen"
             android:theme="@style/Theme.Eshtery.NoActionBar" />
-        <activity android:name=".ResetPassword" />
-        <activity android:name=".ForgetPassword" />
-        <activity android:name=".Register" />
+        <activity android:name=".ResetPassword"
+            android:parentActivityName=".ForgetPassword"/>
+        <activity android:name=".ForgetPassword"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Register"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

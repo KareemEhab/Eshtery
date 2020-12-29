@@ -40,5 +40,9 @@
             android:id="@+id/nav_wishlist"
             android:icon="@drawable/heart"
             android:title="My Wishlist" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="Logout" />
     </group>
 </menu>
