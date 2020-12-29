@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.andremion.counterfab.CounterFab;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -40,11 +41,11 @@ public class MainScreen extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+        CounterFab counterfab = (CounterFab)findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                counterfab.increase();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -52,7 +53,7 @@ public class MainScreen extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_fashion, R.id.nav_electronics, R.id.nav_kitchen)
+                R.id.nav_deals, R.id.nav_fashion, R.id.nav_electronics, R.id.nav_kitchen, R.id.nav_sports, R.id.nav_toys, R.id.nav_perfumes, R.id.nav_home, R.id.nav_wishlist, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

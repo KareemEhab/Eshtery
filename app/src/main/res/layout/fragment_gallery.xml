@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.gallery.GalleryFragment">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="115dp"
+        android:layout_marginBottom="76dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/text_gallery"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/text_gallery"
         android:layout_width="match_parent"
