@@ -11,6 +11,7 @@
 
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_main2">MainActivity</string>
     <string-array name="jobs">
         <item>Engineer</item>
         <item>Doctor</item>
@@ -21,5 +22,10 @@
         <item>Architect</item>
         <item>Other</item>
     </string-array>
-    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_activity_fashion">Fashion</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>

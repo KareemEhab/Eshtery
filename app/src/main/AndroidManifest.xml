@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.eshtery" >
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,17 +13,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Eshtery" >
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="false" />
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity android:name=".Testing" />
         <activity
             android:name=".MainScreen"
             android:label="@string/title_activity_main_screen"
             android:theme="@style/Theme.Eshtery.NoActionBar" />
-        <activity android:name=".ResetPassword"
-            android:parentActivityName=".ForgetPassword"/>
-        <activity android:name=".ForgetPassword"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Register"
+        <activity
+            android:name=".ResetPassword"
+            android:parentActivityName=".ForgetPassword" />
+        <activity
+            android:name=".ForgetPassword"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Register"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.Eshtery.NoActionBar"/>
+            android:theme="@style/Theme.Eshtery.NoActionBar" />
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
