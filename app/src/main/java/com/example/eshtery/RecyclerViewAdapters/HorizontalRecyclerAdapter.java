@@ -1,4 +1,4 @@
-package com.example.eshtery;
+package com.example.eshtery.RecyclerViewAdapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +8,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.eshtery.MainUserScreen;
+import com.example.eshtery.R;
+import com.example.eshtery.RecyclerViewClasses.Items;
+
 import java.util.List;
 
 public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<HorizontalRecyclerAdapter.MyViewHolder> {
-    private List<Item> items;
+    private List<Items> items;
     class MyViewHolder extends RecyclerView.ViewHolder {
         //TextView title, year, genre;
         ImageView img;
@@ -21,9 +26,6 @@ public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<HorizontalRe
         ImageButton wishList;
         MyViewHolder(View view) {
             super(view);
-            //title = view.findViewById(R.id.title);
-            //genre = view.findViewById(R.id.genre);
-            //year = view.findViewById(R.id.year);
             img = view.findViewById(R.id.imageAdapter);
             txtName = view.findViewById(R.id.textAdapterName);
             txtPrice = view.findViewById(R.id.textAdapterPrice);
@@ -31,31 +33,26 @@ public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<HorizontalRe
             wishList = view.findViewById(R.id.btnAdapterWishList);
         }
     }
-    public HorizontalRecyclerAdapter(List<Item> moviesList) {
+    public HorizontalRecyclerAdapter(List<Items> moviesList) {
         this.items = moviesList;
     }
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.custom_listview, parent, false);
+                .inflate(R.layout.recycler_view_custom_homescreen_horizontal_list, parent, false);
         return new MyViewHolder(itemView);
     }
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        //MovieModel movie = moviesList.get(position);
-        //holder.title.setText(movie.getTitle());
-        //holder.genre.setText(movie.getGenre());
-        //holder.year.setText(movie.getYear());
-
-        Item item = items.get(position);
+        Items item = items.get(position);
         holder.img.setImageResource(item.getImage());
         holder.txtName.setText(item.getName());
         holder.txtPrice.setText(item.getPrice());
         holder.cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainScreen.increment(item.getName());
+                MainUserScreen.increment(item.getName());
             }
         });
     }

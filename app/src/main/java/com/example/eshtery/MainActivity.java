@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 usernameStr = username.getText().toString();
                 passwordStr = password.getText().toString();
                 rememberMe();
-                Intent I = new Intent(MainActivity.this, MainScreen.class);
+                Intent I = new Intent(MainActivity.this, AddItemActivity.class);
                 startActivity(I);
             }
         });

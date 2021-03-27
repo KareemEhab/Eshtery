@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.eshtery" >
-
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-
-
+    package="com.example.eshtery">
+<uses-permission android:name="android.permission.CAMERA"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Eshtery" >
-        <uses-library
-            android:name="com.google.android.wearable"
-            android:required="false" />
-
-        <!--
-               Set to true if your app is Standalone, that is, it does not require the handheld
-               app to run.
-        -->
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
-
-        <activity android:name=".Testing" />
+        android:theme="@style/Theme.Eshtery">
+        <activity android:name=".BarCode"></activity>
+        <activity android:name=".AddItemActivity" />
+        <activity android:name=".Checkout" />
+        <activity android:name=".ShoppingCart" />
+        <activity android:name=".ItemDetails" />
+        <activity android:name=".ItemsListActivity" />
+        <activity android:name=".MainUserScreen" />
         <activity
             android:name=".MainScreen"
             android:label="@string/title_activity_main_screen"
             android:theme="@style/Theme.Eshtery.NoActionBar" />
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
         <activity
             android:name=".ResetPassword"
             android:parentActivityName=".ForgetPassword" />
@@ -40,13 +34,24 @@
             android:name=".Register"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.Eshtery.NoActionBar" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <uses-library
+            android:name="com.google.android.wearable"
+            android:required="false" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>

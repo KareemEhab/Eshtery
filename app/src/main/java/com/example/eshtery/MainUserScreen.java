@@ -1,10 +1,16 @@
-/*package com.example.eshtery;
+package com.example.eshtery;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Menu;
 import android.widget.Toast;
 
 import com.andremion.counterfab.CounterFab;
@@ -13,23 +19,10 @@ import com.example.eshtery.RecyclerViewAdapters.HorizontalRecyclerAdapter;
 import com.example.eshtery.RecyclerViewClasses.CategoryHorizontalMainScreen;
 import com.example.eshtery.RecyclerViewClasses.Items;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainScreen extends AppCompatActivity {
+public class MainUserScreen extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     public static CounterFab counterfab;
@@ -42,29 +35,26 @@ public class MainScreen extends AppCompatActivity {
     private ArrayList<CategoryHorizontalMainScreen> categoryList = new ArrayList<>();
 
     @Override
-    public void onBackPressed() {
-        AlertDialog dialog = new AlertDialog.Builder(this).setMessage("Are you sure you want to exit?").setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                finish();
-                System.exit(0);
-            }
-        }).setNegativeButton("CANCEL", null).show();
-    }
-
-    private static final String TAG = "MainScreen";
-    
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_screen);
-        context = getApplicationContext();
+        setContentView(R.layout.activity_main_user_screen);
 
-        RecyclerView recyclerCategoryView = findViewById(R.id.horizontalCategoryView);
+        FloatingActionButton fab = findViewById(R.id.fab2);
+        counterfab = (CounterFab)findViewById(R.id.fab2);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                counterfab.increase();
+            }
+        });
+
+
+
+        RecyclerView recyclerCategoryView = findViewById(R.id.recyclerViewCategory);
         recyclerCategoryView.bringToFront();
         categoryAdapter = new HorizontalCategoryRecyclerAdapter(categoryList);
         LinearLayoutManager categoryLayoutManager = new LinearLayoutManager(getApplicationContext());
-        categoryLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        categoryLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerCategoryView.setLayoutManager(categoryLayoutManager);
         recyclerCategoryView.setItemAnimator(new DefaultItemAnimator());
         recyclerCategoryView.setAdapter(categoryAdapter);
@@ -95,7 +85,7 @@ public class MainScreen extends AppCompatActivity {
 
 
 
-        RecyclerView recyclerView = findViewById(R.id.horizontalView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewLatestItems);
         recyclerView.bringToFront();
         mAdapter = new HorizontalRecyclerAdapter(itemsList);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -127,46 +117,21 @@ public class MainScreen extends AppCompatActivity {
 
 
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        counterfab = (CounterFab)findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog dialog = new AlertDialog.Builder(this).setMessage("Are you sure you want to exit?").setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                counterfab.increase();
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+                System.exit(0);
             }
-        });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                 R.id.nav_electronics, R.id.nav_kitchen, R.id.nav_sports, R.id.nav_toys, R.id.nav_perfumes, R.id.nav_home, R.id.nav_wishlist, R.id.nav_logout)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        }).setNegativeButton("CANCEL", null).show();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_screen, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
-
     public static void increment(String name)
     {
         counterfab.increase();
         Toast.makeText(context ,name, Toast.LENGTH_LONG).show();
     }
-}*/
+}

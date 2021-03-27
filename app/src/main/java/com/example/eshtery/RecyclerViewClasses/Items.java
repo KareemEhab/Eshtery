@@ -1,10 +1,10 @@
-package com.example.eshtery;
+package com.example.eshtery.RecyclerViewClasses;
 
-public class Item {
+public class Items {
     private String Name;
     private String Price;
     private int Image;
-    public Item(String Name, String Price, int Image)
+    public Items(String Name, String Price, int Image)
     {
         this.Name = Name;
         this. Price = Price;

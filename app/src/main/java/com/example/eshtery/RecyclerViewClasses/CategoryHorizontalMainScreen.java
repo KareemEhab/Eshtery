@@ -1,6 +1,6 @@
-package com.example.eshtery;
+package com.example.eshtery.RecyclerViewClasses;
 
-public class Category {
+public class CategoryHorizontalMainScreen {
     public String getName() {
         return name;
     }
@@ -19,7 +19,7 @@ public class Category {
 
     private String name;
     private int image;
-    public Category(String name, int image)
+    public CategoryHorizontalMainScreen(String name, int image)
     {
         this.name = name;
         this.image = image;
