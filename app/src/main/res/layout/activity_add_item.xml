@@ -14,18 +14,42 @@
         android:text="Add Item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAddDescription"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.22" />
 
     <Button
         android:id="@+id/buttonAddImage"
         android:layout_width="50dp"
         android:layout_height="44dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintStart_toEndOf="@+id/textViewItemImage"
         app:layout_constraintTop_toBottomOf="@+id/spinnerItemCategory" />
+
+    <ImageView
+        android:id="@+id/imageViewItemAddedImage"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAddDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAddImage"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerItemCategory"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textViewItemImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="44dp"
+        android:text="Image"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/buttonBarCode"
@@ -43,10 +67,10 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
+        android:hint="Name"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toEndOf="@+id/textViewEmail"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,8 +80,8 @@
         android:layout_height="51dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="$"
         android:inputType="textPersonName"
-        android:text="Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toEndOf="@+id/textViewItemImage"
@@ -65,33 +89,25 @@
 
     <EditText
         android:id="@+id/editTextAddDescription"
-        android:layout_width="383dp"
-        android:layout_height="164dp"
+        android:layout_width="385dp"
+        android:layout_height="94dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Enter Description Here..."
+        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
-
-    <ImageView
-        android:id="@+id/imageViewItemAddedImage"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
-        app:layout_constraintStart_toEndOf="@+id/buttonAddImage"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerItemCategory"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
+        android:imeOptions="normal"
+        />
 
     <Spinner
         android:id="@+id/spinnerItemCategory"
         android:layout_width="267dp"
         android:layout_height="51dp"
         android:layout_marginTop="20dp"
+        android:entries="@array/categories"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toEndOf="@+id/textViewItemCategory"
         app:layout_constraintTop_toBottomOf="@+id/editTextItemPrice" />
 
@@ -100,7 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:text="Price"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -135,24 +151,11 @@
         app:layout_constraintTop_toTopOf="@+id/spinnerItemCategory" />
 
     <TextView
-        android:id="@+id/textViewItemImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
-        android:text="Image"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewItemCategory" />
-
-    <TextView
         android:id="@+id/textViewItemBarCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="36dp"
         android:text="Bar Code"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -164,13 +167,13 @@
         android:id="@+id/textViewDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="28dp"
         android:text="Description"
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.039"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewItemBarCode" />
 
@@ -178,13 +181,40 @@
         android:id="@+id/textViewBarCodeResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="184dp"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toEndOf="@+id/buttonBarCode"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewItemAddedImage" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerItemCategory" />
+
+    <EditText
+        android:id="@+id/editTextItemQuantity"
+        android:layout_width="70dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Num"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerItemCategory" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="52dp"
+        android:text="Quantity"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItemCategory" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

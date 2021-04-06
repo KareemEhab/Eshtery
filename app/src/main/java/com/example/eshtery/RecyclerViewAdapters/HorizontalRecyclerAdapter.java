@@ -29,8 +29,6 @@ public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<HorizontalRe
             img = view.findViewById(R.id.imageAdapter);
             txtName = view.findViewById(R.id.textAdapterName);
             txtPrice = view.findViewById(R.id.textAdapterPrice);
-            cart = view.findViewById(R.id.btnAdapterCart);
-            wishList = view.findViewById(R.id.btnAdapterWishList);
         }
     }
     public HorizontalRecyclerAdapter(List<Items> moviesList) {
@@ -49,12 +47,6 @@ public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<HorizontalRe
         holder.img.setImageResource(item.getImage());
         holder.txtName.setText(item.getName());
         holder.txtPrice.setText(item.getPrice());
-        holder.cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainUserScreen.increment(item.getName());
-            }
-        });
     }
     @Override
     public int getItemCount() {

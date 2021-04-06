@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -13,6 +15,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.eshtery.RecyclerViewClasses.ItemsList;
+
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,12 +60,28 @@ public class MainActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                //finish();
                 usernameStr = username.getText().toString();
                 passwordStr = password.getText().toString();
                 rememberMe();
-                Intent I = new Intent(MainActivity.this, AddItemActivity.class);
-                startActivity(I);
+                Database db = new Database(getApplicationContext());
+                db.insertAllCategories();
+                if(db.checkIfCustomerValid(usernameStr, passwordStr,getApplicationContext()) == true)
+                {
+                    finish();
+                    if(usernameStr.equals("admin") && passwordStr.equals("admin"))
+                    {
+                        Intent I = new Intent(MainActivity.this, AddItemActivity.class);
+                        startActivity(I);
+                    }
+                    else
+                    {
+                        Intent I = new Intent(MainActivity.this, MainUserScreen.class);
+                        startActivity(I);
+                    }
+                }
+                else
+                   Toast.makeText(getApplicationContext(), "Inavlid Username or Password", Toast.LENGTH_LONG).show();
             }
         });
 

@@ -1,5 +1,7 @@
 package com.example.eshtery.RecyclerViewAdapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eshtery.AddItemActivity;
+import com.example.eshtery.ItemsListActivity;
+import com.example.eshtery.MainActivity;
 import com.example.eshtery.R;
 import com.example.eshtery.RecyclerViewClasses.CategoryHorizontalMainScreen;
 
@@ -15,6 +20,9 @@ import java.util.List;
 
 public class HorizontalCategoryRecyclerAdapter extends RecyclerView.Adapter<HorizontalCategoryRecyclerAdapter.MyViewHolder> {
     private List<CategoryHorizontalMainScreen> categories;
+    Context context;
+    public static String Category = "Electronics";
+
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView txtName;
         ImageView img;
@@ -42,26 +50,16 @@ public class HorizontalCategoryRecyclerAdapter extends RecyclerView.Adapter<Hori
         holder.txtName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                click(category.getName());
+                Category = category.getName();
+                ItemsListActivity.currentCategor = holder.txtName.getText().toString();
             }
         });
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                click(category.getName());
+                Category = category.getName();
             }
         });
-
-    }
-
-    private void click(String name){
-        switch(name)
-        {
-            case "Kitchen":
-                break;
-            case "Tools":
-                break;
-        }
     }
 
     @Override

@@ -71,8 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/white"
-                    app:srcCompat="@drawable/subtract" />
+                    android:background="@color/white" />
 
                 <TextView
                     android:id="@+id/textViewItemListCount"
@@ -80,17 +79,15 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="0"
                     android:textSize="18dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <ImageButton
                     android:id="@+id/imageButtonItemListPlus"
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/white"
-                    app:srcCompat="@drawable/add" />
+                    android:background="@color/white" />
 
             </LinearLayout>
         </LinearLayout>

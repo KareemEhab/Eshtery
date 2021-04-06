@@ -43,7 +43,7 @@ public class VerticalItemsListAdapter extends RecyclerView.Adapter<VerticalItems
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ItemsList item = items.get(position);
-        holder.img.setImageResource(item.getImage());
+        holder.img.setImageBitmap(item.getImage());
         holder.txtName.setText(item.getName());
         holder.txtPrice.setText(item.getPrice());
     }
